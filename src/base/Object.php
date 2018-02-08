@@ -181,7 +181,7 @@ class Object extends \yii\base\Object
         }
 
         $param_id = substr($method, 3);
-        $name = STR::id2camel($param_id, '_');
+        $name = lcfirst(STR::id2camel($param_id, '_'));
 
         switch ($action) {
             case 'has': {
