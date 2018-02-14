@@ -65,10 +65,10 @@ class Object extends \yii\base\Object
         $params = $this->params;
         array_walk_recursive(
             $params, function (&$value) {
-            if ($value instanceof Object) {
-                $value = $value->__array();
+                if ($value instanceof Object) {
+                    $value = $value->__array();
+                }
             }
-        }
         );
 
         return $params;
@@ -85,7 +85,7 @@ class Object extends \yii\base\Object
      */
     public function __get($name)
     {
-        $getter = 'get' . STR::camel2id($name);
+        $getter = 'get' . STR::id2camel($name, '_');
         if (method_exists($this, $getter)) {
             return $this->$getter();
         }
@@ -105,7 +105,7 @@ class Object extends \yii\base\Object
      */
     public function __set($name, $value)
     {
-        $setter = 'set' . STR::camel2id($name);
+        $setter = 'set' . STR::id2camel($name, '_');
         if (method_exists($this, $setter)) {
             $this->$setter($value);
             return $value;
@@ -126,7 +126,7 @@ class Object extends \yii\base\Object
      */
     public function __isset($name)
     {
-        $getter = 'get' . STR::camel2id($name);
+        $getter = 'get' . STR::id2camel($name, '_');
         if (method_exists($this, $getter)) {
             return $this->$getter() !== null;
         }
@@ -146,7 +146,7 @@ class Object extends \yii\base\Object
      */
     public function __unset($name)
     {
-        $setter = 'set' . STR::camel2id($name);
+        $setter = 'set' . STR::id2camel($name, '_');
         if (method_exists($this, $setter)) {
             $this->$setter(null);
             return null;
@@ -181,7 +181,7 @@ class Object extends \yii\base\Object
         }
 
         $param_id = substr($method, 3);
-        $name = lcfirst(STR::id2camel($param_id, '_'));
+        $name = STR::camel2id($param_id, '_');
 
         switch ($action) {
             case 'has': {
