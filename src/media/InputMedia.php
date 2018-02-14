@@ -7,19 +7,24 @@ use yii\helpers\StringHelper as SH;
 
 /**
  * @author MehdiKhody <khody.khoram@gmail.com>
- * @since 1.0.0
+ * @since 1.1.0
  *
  * @property string|InputFile media
  * @property string caption
+ * @property string parse_mode
  *
  * @method bool hasMedia()
  * @method bool hasCaption()
+ * @method bool hasParseMode()
  * @method $this setMedia($file)
  * @method $this setCaption($string)
+ * @method $this setParseMode($string)
  * @method $this remMedia()
  * @method $this remCaption()
+ * @method $this remParseMode()
  * @method string|InputFile getMedia($default = null)
  * @method string getCaption($default = null)
+ * @method string getParseMode($default = null)
  */
 abstract class InputMedia extends Object
 {

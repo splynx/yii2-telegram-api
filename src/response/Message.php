@@ -2,7 +2,7 @@
 
 /**
  * @author MehdiKhody <khody.khoram@gmail.com>
- * @since 1.0.0
+ * @since 1.1.0
  *
  * @property int message_id
  * @property User from
@@ -45,6 +45,7 @@
  * @property Message pinned_message
  * @property Invoice invoice
  * @property SuccessfulPayment successful_payment
+ * @property string connected_website
  *
  * @method bool hasFrom()
  * @method bool hasForwardFrom()
@@ -85,6 +86,7 @@
  * @method bool hasPinnedMessage()
  * @method bool hasInvoice()
  * @method bool hasSuccessfulPayment()
+ * @method bool hasConnectedWebsite()
  * @method int getMessageId()
  * @method User getFrom($default = null)
  * @method int getDate()
@@ -127,6 +129,7 @@
  * @method Message getPinnedMessage($default = null)
  * @method Invoice getInvoice($default = null)
  * @method SuccessfulPayment getSuccessfulPayment($default = null)
+ * @method string getConnectedWebsite($default = null)
  */
 class Message extends Response
 {

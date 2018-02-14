@@ -7,7 +7,7 @@ use api\keyboard\Keyboard;
 
 /**
  * @author MehdiKhody <khody.khoram@gmail.com>
- * @since 1.0.0
+ * @since 1.1.0
  *
  * @property int|string chat_id
  * @property InputFile|string video
@@ -15,6 +15,7 @@ use api\keyboard\Keyboard;
  * @property int width
  * @property int height
  * @property string caption
+ * @property bool supports_streaming
  * @property bool disable_notification
  * @property int reply_to_message_id
  * @property Keyboard reply_markup
@@ -26,6 +27,7 @@ use api\keyboard\Keyboard;
  * @method bool hasWidth()
  * @method bool hasHeight()
  * @method bool hasCaption()
+ * @method bool hasSupportsStreaming()
  * @method bool hasDisableNotification()
  * @method bool hasReplyToMessageId()
  * @method bool hasReplyMarkup()
@@ -35,6 +37,7 @@ use api\keyboard\Keyboard;
  * @method $this setWidth($integer)
  * @method $this setHeight($integer)
  * @method $this setCaption($string)
+ * @method $this setSupportsStreaming($bool)
  * @method $this setDisableNotification($boolean)
  * @method $this setReplyToMessageId($integer)
  * @method $this setReplyMarkup($markup)
@@ -44,6 +47,7 @@ use api\keyboard\Keyboard;
  * @method $this remWidth()
  * @method $this remHeight()
  * @method $this remCaption()
+ * @method $this remSupportsStreaming()
  * @method $this remDisableNotification()
  * @method $this remReplyToMessageId()
  * @method $this remReplyMarkup()
@@ -56,6 +60,7 @@ use api\keyboard\Keyboard;
  * @method bool getDisableNotification($default = null)
  * @method int getReplyToMessageId($default = null)
  * @method Keyboard getReplyMarkup($default = null)
+ * @method bool getSupportsStreaming($default = null)
  */
 class sendVideo extends Method
 {

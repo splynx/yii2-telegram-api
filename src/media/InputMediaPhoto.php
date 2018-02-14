@@ -2,7 +2,7 @@
 
 /**
  * @author MehdiKhody <khody.khoram@gmail.com>
- * @since 1.0.0
+ * @since 1.1.0
  */
 class InputMediaPhoto extends InputMedia
 {

@@ -61,7 +61,7 @@ use api\method\stopMessageLiveLocation;
 
 /**
  * @author MehdiKhody <khody.khoram@gmail.com>
- * @since 1.0.0
+ * @since 1.1.0
  *
  * @method getUpdates getUpdates($params = [])
  * @method setWebhook setWebhook($params = [])
@@ -129,8 +129,8 @@ class API extends Object
     /**
      * API Defines
      */
-    const VERSION = '1.0.0';
-    const API_VERSION = '3.5';
+    const VERSION = '1.1.0';
+    const API_VERSION = '3.6';
     const EVENT_AFTER_SEND = 'AfterSend';
     const EVENT_BEFORE_SEND = 'BeforeSend';
     const EVENT_REQUEST_FAILED = 'RequestFailed';
