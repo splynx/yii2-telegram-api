@@ -146,6 +146,9 @@ class Request extends Object
         $curl->setOption(CURLOPT_HEADER, false);
         $curl->setOption(CURLOPT_RETURNTRANSFER, true);
         $curl->setOption(CURLOPT_SSL_VERIFYPEER, false);
+        if (ini_get('curl.cainfo') !== '') $curl->setOptions([
+            CURLOPT_SSL_VERIFYPEER => true
+        ]); 
         if ($this->hasFile()) $curl->setOptions([
             CURLOPT_SAFE_UPLOAD => true,
             CURLOPT_HTTPHEADER  => [
