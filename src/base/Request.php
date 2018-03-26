@@ -145,10 +145,7 @@ class Request extends Object
         $curl->setOption(CURLOPT_TIMEOUT, 30);
         $curl->setOption(CURLOPT_HEADER, false);
         $curl->setOption(CURLOPT_RETURNTRANSFER, true);
-        $curl->setOption(CURLOPT_SSL_VERIFYPEER, false);
-        if (ini_get('curl.cainfo') !== '') $curl->setOptions([
-            CURLOPT_SSL_VERIFYPEER => true
-        ]); 
+        $curl->setOption(CURLOPT_SSL_VERIFYPEER, !empty(ini_get('curl.cainfo'))); 
         if ($this->hasFile()) $curl->setOptions([
             CURLOPT_SAFE_UPLOAD => true,
             CURLOPT_HTTPHEADER  => [
