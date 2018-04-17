@@ -14,7 +14,7 @@ use yii\helpers\ArrayHelper as AH;
  * We support only POST HTTP method.
  *
  * @author MehdiKhody <khody.khoram@gmail.com>
- * @since 1.0.0
+ * @since 1.2.0
  */
 class Request extends Object
 {
