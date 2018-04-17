@@ -3,6 +3,7 @@
 use api\InputFile;
 use yii\helpers\Json;
 use api\media\InputMedia;
+use yii\helpers\ArrayHelper as AH;
 
 /**
  * Making requests
@@ -145,7 +146,18 @@ class Request extends Object
         $curl->setOption(CURLOPT_TIMEOUT, 30);
         $curl->setOption(CURLOPT_HEADER, false);
         $curl->setOption(CURLOPT_RETURNTRANSFER, true);
-        $curl->setOption(CURLOPT_SSL_VERIFYPEER, !empty(ini_get('curl.cainfo'))); 
+        $curl->setOption(
+            CURLOPT_SSL_VERIFYPEER,
+            !$this->hasProxy() && !empty(ini_get('curl.cainfo'))
+        );
+        if ($this->hasProxy()) {
+            $proxy = $this->getProxy();
+            $this->setOption(CURLOPT_PROXY, AH::getValue($proxy, 'server', null));
+            $this->setOption(CURLOPT_PROXYPORT, AH::getValue($proxy, 'port', null));
+            $this->setOption(CURLOPT_PROXYUSERPWD, AH::getValue($proxy, 'auth', null));
+            $this->setOption(CURLOPT_PROXYTYPE, 'HTTP');
+            $this->setOption(CURLOPT_PROXYUSERPWD, 1);
+        }
         if ($this->hasFile()) $curl->setOptions([
             CURLOPT_SAFE_UPLOAD => true,
             CURLOPT_HTTPHEADER  => [
