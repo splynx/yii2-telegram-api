@@ -140,13 +140,20 @@ class API extends Object
      * @var Token
      */
     protected $token;
+    
+    /**
+     * @var array
+     */
+    public $proxy = [];
 
     /**
      * API constructor.
      * @param string $token
+     * @param array $proxy
      */
-    public function __construct($token)
+    public function __construct($token, $proxy = [])
     {
+        $this->proxy = $proxy;
         $this->token = $token;
         if (!($token instanceof Token)) {
             $this->token = new Token($token);
@@ -165,6 +172,9 @@ class API extends Object
         $method = lcfirst($name);
         $className = 'api\\method\\' . $method;
         if (class_exists($className, true)) {
+            if (!empty($this->proxy)) 
+                $params['proxy'] = $this->proxy;
+            
             return new $className($this->token, $params);
         }
 
