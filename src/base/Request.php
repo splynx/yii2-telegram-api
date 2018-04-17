@@ -157,6 +157,7 @@ class Request extends Object
             $this->setOption(CURLOPT_PROXYUSERPWD, AH::getValue($proxy, 'auth', null));
             $this->setOption(CURLOPT_PROXYTYPE, 'HTTP');
             $this->setOption(CURLOPT_PROXYUSERPWD, 1);
+            $this->remProxy();
         }
         if ($this->hasFile()) $curl->setOptions([
             CURLOPT_SAFE_UPLOAD => true,
@@ -193,6 +194,8 @@ class Request extends Object
         $pairs['{server}'] = self::SERVER;
         $apiAddress = strtr(self::API_PATTERN, $pairs);
         $curl->setOption(CURLOPT_POSTFIELDS, $params);
-        return $curl->post($apiAddress, true);
+        $result = $curl->post($apiAddress, true);
+        if (isset($proxy)) $this->setProxy($proxy);
+        return $result;
     }
 }
