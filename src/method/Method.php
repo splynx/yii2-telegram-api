@@ -2,10 +2,10 @@
 
 use api\base\API;
 use api\base\Request;
-use api\response\Response;
 use api\response\Error;
 use api\event\AfterSend;
 use api\event\BeforeSend;
+use api\response\Response;
 use api\event\RequestFailed;
 use api\event\RequestSucceed;
 use yii\helpers\ArrayHelper as AH;
@@ -14,7 +14,17 @@ use yii\helpers\StringHelper as SH;
 
 /**
  * @author MehdiKhody <khody.khoram@gmail.com>
- * @since 1.0.0
+ * @since 1.2.0
+ *
+ * @method bool hasProxy()
+ * @method $this setProxy($config)
+ * @method $this remProxy()
+ * @method string getProxy($default = null)
+ * `$method->setProxy([
+ *      'server' => 'proxy.server.com',
+ *      'port' => 8080,
+ *      'auth' => 'user:pass'
+ * ])`
  */
 abstract class Method extends Request
 {
