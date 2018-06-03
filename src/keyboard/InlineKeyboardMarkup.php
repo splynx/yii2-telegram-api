@@ -60,6 +60,7 @@ class InlineKeyboardMarkup extends Keyboard
                     $row = sizeof($keyboard) - 1;
                 }
                 if ($column == null &&
+                    isset($keyboard[$row]) &&
                     sizeof($keyboard[$row]) > 0) {
                     $column = sizeof($keyboard[$row]) - 1;
                 }
