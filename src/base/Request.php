@@ -182,11 +182,13 @@ class Request extends Object
                 if ($value instanceof Object) {
                     $value = $value->__array();
                 }
-                if (is_array($value)) {
-                    $value = Json::encode($value);
-                }
             }
         );
+        array_walk($params, function(&$value) {
+            if (is_array($value)) {
+                $value = Json::encode($value);
+            }
+        });
 
         unset($params['proxy']);
         $pairs['{token}'] = $this->token;
