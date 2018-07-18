@@ -1,11 +1,12 @@
 <?php namespace api\base;
 
+use yii\base\BaseObject;
 use yii\helpers\Json;
 use yii\helpers\Inflector as STR;
 use yii\helpers\ArrayHelper as AH;
 
 /**
- * Object is the base class that implements the *property* feature.
+ * CustomObject is the base class that implements the *property* feature.
  * A property is defined by a getter method (e.g. `getLabel`),
  * and/or a setter method (e.g. `setLabel`).
  *
@@ -21,7 +22,7 @@ use yii\helpers\ArrayHelper as AH;
  * @author MehdiKhody <khody.khoram@gmail.com>
  * @since 1.0.0
  */
-class Object extends \yii\base\BaseObject
+class CustomObject extends BaseObject
 {
 
     /**
@@ -65,7 +66,7 @@ class Object extends \yii\base\BaseObject
         $params = $this->params;
         array_walk_recursive(
             $params, function (&$value) {
-                if ($value instanceof Object) {
+                if ($value instanceof CustomObject) {
                     $value = $value->__array();
                 }
             }

@@ -16,7 +16,7 @@ use yii\helpers\ArrayHelper as AH;
  * @author MehdiKhody <khody.khoram@gmail.com>
  * @since 1.2.0
  */
-class Request extends Object
+class Request extends CustomObject
 {
 
     /**
@@ -179,7 +179,7 @@ class Request extends Object
                     $value = $value->__array();
                     $value['media'] = 'attach://' . $id;
                 }
-                if ($value instanceof Object) {
+                if ($value instanceof CustomObject) {
                     $value = $value->__array();
                 }
             }

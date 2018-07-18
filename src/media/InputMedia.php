@@ -1,7 +1,7 @@
 <?php namespace api\media;
 
 use api\InputFile;
-use api\base\Object;
+use api\base\CustomObject;
 use yii\helpers\Inflector as STR;
 use yii\helpers\StringHelper as SH;
 
@@ -26,7 +26,7 @@ use yii\helpers\StringHelper as SH;
  * @method string getCaption($default = null)
  * @method string getParseMode($default = null)
  */
-abstract class InputMedia extends Object
+abstract class InputMedia extends CustomObject
 {
 
     /**
