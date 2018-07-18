@@ -1,6 +1,6 @@
 <?php namespace api\inline;
 
-use api\base\BaseObject;
+use api\base\CustomObject;
 use yii\helpers\Inflector as STR;
 use yii\helpers\StringHelper as SH;
 
@@ -15,7 +15,7 @@ use yii\helpers\StringHelper as SH;
  * @method $this remId()
  * @method string getId($default = null)
  */
-abstract class InlineQueryResult extends BaseObject
+abstract class InlineQueryResult extends CustomObject
 {
 
     /**
